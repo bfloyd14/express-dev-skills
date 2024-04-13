@@ -6,15 +6,17 @@
     <title>Express Skills</title>
 </head>
 <body>
-  <h1>Skills</h1>
+  <h1>Skills List</h1>
   <ul>
     <% skills.forEach(skill =>{ %>
-  <li>
-    <%= skill.strength %>
-    -
-    <%= skill.have ? 'yes' : 'no' %>
-  </li> 
+    <li>
+      <a href="/skills/<%= skill._id %>"><%= skill.strength %></a>
+      -
+      <%= skill.have ? 'yes' : 'no' %>
+    </li> 
   <% }) %>
   </ul>  
+  <a href="/skills/new">Add to Skills List</a>
+  <a href="/">Back</a>
 </body>
 </html>
