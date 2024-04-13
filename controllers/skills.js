@@ -43,9 +43,23 @@ function show(req, res){
   })
 }
 
+function deleteSkill(req, res){
+  //use model to delete a skill
+  Skill.findByIdAndDelete(req.params.skillId)
+  .then(skill=>{
+    //redirect to skills index
+    res.redirect('/skills')
+  })
+  .catch(error =>{
+    console.log(error)
+    res.redirect('/skills')
+  })
+}
+
 export {
   index,
   newSkill as new,
   create,
   show,
+  deleteSkill as delete,
 }
